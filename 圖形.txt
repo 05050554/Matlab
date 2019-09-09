@@ -1,0 +1,5 @@
+%畫出|sin(x)| -2pi~2pi 增量pi/10
+
+x=-2*pi:pi/10:2*pi;
+y=abs(sin(x));
+plot(y);
