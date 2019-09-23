@@ -1,0 +1,19 @@
+R=1600;
+C=1.07E-6;
+f=1:2:1000;
+
+res=1./(1+j*2*pi*f*R*C);
+amp=abs(res);
+phase=angle(res);
+subplot(2,1,1);
+loglog(f,amp);
+title('Amplitude Response');
+xlabel('Frrequency(Hz)');
+ylabel('Output/Intput Ratio');
+grid on;
+subplot(2,1,2);
+semilogx(f,phase);
+title('Phase Response');
+xlabel('Frrequency(Hz)');
+ylabel('Output/Intput Ratio(rad)');
+grid on;
