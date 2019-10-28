@@ -1,0 +1,20 @@
+    
+function [xmin,min_value,xmax,max_value]=extremes(first_value,last_value,num_steps,func)
+msg=nargchk(4,4,nargin);
+error(msg);
+dx=(last_value-first_value)/(num_steps-1);
+x=first_value:dx:last_value;
+y=feval(func,x);
+[max_value,ymax]=max(y);
+[min_value,ymin]=min(y);
+xmax=x(ymax);
+xmin=x(ymin);
+ 
+plot(x,y);
+axis([first_value*0.9 last_value*1.1 min_value-1 max_value+1]);
+hold on;
+line([xmax xmax],[min_value-1,max_value],'linestyle','--','color','g');
+line([xmin xmin],[min_value-1,min_value],'linestyle','--','color','r');
+line([first_value-1 xmin],[min_value,min_value],'linestyle','--','color','r');
+line([first_value-1 xmax],[max_value,max_value],'linestyle','--','color','g');
+%¿é¤J[xmin,min_value,xmax,max_value]=extremes(5,10,70,'cos')
